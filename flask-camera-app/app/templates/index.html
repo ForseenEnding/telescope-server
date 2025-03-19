@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Flask Camera App</title>
+</head>
+<body>
+    <header>
+        <h1>USB Camera Control</h1>
+    </header>
+    <main>
+        <section id="image-display">
+            <h2>Captured Image</h2>
+            <img id="captured-image" src="{{ url_for('static', filename='images/latest.jpg') }}" alt="Latest Capture">
+        </section>
+        <section id="controls">
+            <h2>Camera Controls</h2>
+            <button id="capture-button">Capture Image</button>
+            <button id="transfer-button">Transfer Image</button>
+        </section>
+    </main>
+    <footer>
+        
+    </footer>
+    <script>
+        document.getElementById('capture-button').onclick = function() {
+            fetch('/capture').then(response => {
+                if (response.ok) {
+                    alert('Image captured!');
+                    location.reload();
+                }
+            });
+        };
+
+        document.getElementById('transfer-button').onclick = function() {
+            fetch('/transfer').then(response => {
+                if (response.ok) {
+                    alert('Image transferred!');
+                }
+            });
+        };
+    </script>
+</body>
+</html>
