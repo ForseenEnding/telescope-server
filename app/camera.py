@@ -9,6 +9,9 @@ class Camera:
     def __del__(self):
         if self.vid.isOpened():
             self.vid.release()
+            
+    def get_images(self):
+        return ""
 
     def get_frame(self):
         if self.vid.isOpened():

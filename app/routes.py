@@ -17,7 +17,7 @@ def capture():
 @app.route('/transfer', methods=['GET'])
 def transfer():
     image_id = request.form.get('image_id')
-#   camera.transfer_image(image_id)
+    camera.transfer_image(image_id)
     return redirect(url_for('app.index'))
 
 @app.route('/control', methods=['GET'])
