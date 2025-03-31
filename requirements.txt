@@ -1,4 +1,6 @@
 Flask
-opencv-python
-flask-cors
-Pillow
+Flask-SQLAlchemy
+python-dotenv
+pytest
+gunicorn
+flasgger
